@@ -13,9 +13,24 @@
 
 
 def string_combiner(*args, unique=False):
+    """
+    string_combiner(*args, unique=False) -> performs the following actions:
+        1: accepts a variable number of strings and numbers. Other types ignored
+        2: accepts a keyword-only argument to return a unique-only result
+        3: combines all the arguments into a single string
+        4: returns a string containing all arguments combined as one string
+        If the unique-only argument is True (default False), then the result
+        combined string will not contain any duplicate characters
+    """
     result = ""
-
-    # YOUR CODE HERE
+    for arg in args:
+        # if str(type(arg)) == "<class 'str'>" or str(type(arg)) == "<class 'int'>":
+        #     result += str(arg)
+        if isinstance(arg, int) or isinstance(arg, str):
+            result += str(arg)
+    if unique:
+        my_set = set(result)
+        result = "".join(my_set)
 
     return result
 

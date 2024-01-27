@@ -3,6 +3,12 @@
 
 
 def my_function(arg1, arg2=None):
+    """
+    my_function(arg1, arg2=None) -> doesn't do anything really.
+    Parameters:
+    arg1: first arg
+    arg2: second arg
+    """
     print(arg1, arg2)
 
 

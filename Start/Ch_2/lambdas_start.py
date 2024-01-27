@@ -13,6 +13,14 @@ def fahrenheit_to_celsisus(temp):
 ctemps = [0, 12, 34, 100]
 ftemps = [32, 65, 100, 212]
 
-# TODO: Use regular functions to convert temps
+# Use regular functions to convert temps
+ctof = list(map(celsisus_to_fahrenheit, ctemps))
+print(ctof)
 
-# TODO: Use lambdas to accomplish the same thing
+# Use lambdas to accomplish the same thing
+ctof = list(map(lambda x:(x * 9/5) + 32, ctemps))
+print(ctof)
+
+# Use list comprehension to accomplish the same thing
+ctof = [(x * 9/5) + 32 for x in ctemps]
+print(ctof)
