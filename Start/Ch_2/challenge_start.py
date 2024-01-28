@@ -15,12 +15,10 @@
 def string_combiner(*args, unique=False):
     """
     string_combiner(*args, unique=False) -> performs the following actions:
-        1: accepts a variable number of strings and numbers. Other types ignored
-        2: accepts a keyword-only argument to return a unique-only result
-        3: combines all the arguments into a single string
-        4: returns a string containing all arguments combined as one string
-        If the unique-only argument is True (default False), then the result
-        combined string will not contain any duplicate characters
+    Returns a string that merges all strings and ints in 'args'
+    Parameters:
+    args: one more more strings or ints. Other types are ignored.
+    unique: makes it so that each character appears only once in the result
     """
     result = ""
     for arg in args:

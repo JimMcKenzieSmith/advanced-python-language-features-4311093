@@ -38,4 +38,34 @@ test_orders = [
     ]
 ]
 
-# TODO: process each order
+# process each order
+for order in test_orders:
+    print("--------------")
+    order_total = 0
+    for item in order:
+        match item:
+            # use literal strings to make sure we match accepted garments
+            case "shirt" | "pants" | "jacket" | "dress" as garment, size, starch, sameday:
+                order_total += 12.95
+                if starch:
+                    order_total += 2.00
+                if sameday:
+                    order_total += 10.00
+                print(f"Dry Clean:({size}) {garment}", "Starched" if starch else "",
+                      "same-day" if sameday else "")
+            case desc, weight:
+                print(f"Wash/Fold: {desc}, weight: {weight}")
+                subtotal = weight * 4.95
+                if weight > 15: # 10 percent off if more than 15 pounds
+                    subtotal *= 0.9
+                order_total += subtotal
+            case item, True, size:
+                print(f"Blanket: ({size}) {item} Dry clean")
+                order_total += 25
+            case item, False, size:
+                print(f"Blanket: ({size}) {item}")
+                order_total += 25
+            case _:
+                print("unknown, could not process order")
+    print(f"Order total: {order_total:.2f}")
+    print("--------------")

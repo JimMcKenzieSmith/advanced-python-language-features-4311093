@@ -2,9 +2,11 @@
 # Objects pattern matching example - matches against object types
 
 # define some geometric shapes
+
 class Circle:
     def __init__(self, radius):
         self.radius = radius
+        super()
 
     def getarea(self):
         return 3.14 * (self.radius ** 2)
@@ -32,3 +34,13 @@ shapes = [Circle(5), Square(4), Rectangle(4, 6),
           Square(7), Circle(9), Rectangle(2, 5)]
 
 # TODO: use pattern matching to process each shape
+for shape in shapes:
+    match shape:
+        case Circle():
+            print(f"Circle with area {shape.getarea()}")
+        case Rectangle():
+            print(f"Rectangle with area {shape.getarea()}")
+        case Square():
+            print(f"Square with area {shape.getarea()}")
+        case _:
+            print(f"Unrecognized shape: type{shape}")
